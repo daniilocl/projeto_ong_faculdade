@@ -16,13 +16,13 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_tipo'] !== 'admin') {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome']);
-    $cpf = trim($_POST['cpf']); // <-- pegar o CPF
+    $cpf = trim($_POST['cpf']); 
     $email = trim($_POST['email']);
     $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
     $tipo = $_POST['tipo_usuario'];
 
     $usuarioModel = new Usuario($conn);
-    $ok = $usuarioModel->criar($nome, $cpf, $email, $senha, $tipo); // <-- passar CPF
+    $ok = $usuarioModel->criar($nome, $cpf, $email, $senha, $tipo);
 
     if ($ok) {
         setNotification('sucesso', 'Usuário criado', 'O usuário foi criado com sucesso.');

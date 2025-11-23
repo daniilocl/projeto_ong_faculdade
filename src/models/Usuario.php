@@ -1,5 +1,4 @@
 <?php
-// models/Usuario.php
 
 class Usuario
 {
@@ -10,10 +9,6 @@ class Usuario
         $this->conn = $conn;
     }
 
-    /**
-     * Cadastra um novo usuário com tipo_usuario='cliente'.
-     * Retorna o ID do novo usuário em caso de sucesso ou false em caso de falha.
-     */
     public function cadastrarUsuario($nome, $cpf, $email, $senha)
     {
         if (!$this->conn) {
@@ -34,24 +29,28 @@ class Usuario
 
         mysqli_stmt_bind_param($stmt, "sssss", $nome, $cpf, $email, $senha_hash, $tipo_padrao);
 
-        $result = mysqli_stmt_execute($stmt);
+        // Desabilita exceptions temporariamente para capturar erro de duplicidade
+        $old_report = mysqli_report(MYSQLI_REPORT_OFF);
+        $result = false;
+        try {
+            $result = mysqli_stmt_execute($stmt);
+        } catch (mysqli_sql_exception $e) {
+            // Trata erro de duplicidade ou outros
+            error_log("Erro ao executar cadastro: " . $e->getMessage());
+            $result = false;
+        }
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Restaura padrão
 
         if ($result) {
-            // Retorna o ID do novo usuário
             $new_id = mysqli_insert_id($this->conn);
             mysqli_stmt_close($stmt);
             return $new_id;
         } else {
-            error_log("Erro ao executar cadastro: " . mysqli_stmt_error($stmt));
             mysqli_stmt_close($stmt);
             return false;
         }
     }
 
-    /**
-     * Cadastra um novo usuário com tipo_usuario='voluntario'.
-     * Retorna o ID do novo usuário em caso de sucesso ou false em caso de falha.
-     */
     public function cadastrarVoluntario($nome, $cpf, $email, $senha)
     {
         if (!$this->conn) {
@@ -62,7 +61,6 @@ class Usuario
         $tipo_voluntario = 'voluntario';
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
 
-        // A inserção é na tabela 'Usuario', não 'Voluntario'
         $sql = "INSERT INTO Usuario (nome, cpf, email, senha, tipo_usuario) VALUES (?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($this->conn, $sql);
 
@@ -76,22 +74,16 @@ class Usuario
         $result = mysqli_stmt_execute($stmt);
 
         if ($result) {
-            // NOVO: Retorna o ID do novo usuário
             $new_id = mysqli_insert_id($this->conn);
             mysqli_stmt_close($stmt);
             return $new_id;
         } else {
-            // Se falhar, é provável que seja CPF/E-mail duplicado
             error_log("Erro ao executar cadastro de voluntário: " . mysqli_stmt_error($stmt));
             mysqli_stmt_close($stmt);
             return false;
         }
     }
 
-    /**
-     * Busca usuário por e-mail para o processo de login.
-     * Inclui 'tipo_usuario' para a lógica de redirecionamento.
-     */
     public function buscarPorEmail($email)
     {
         $sql = "SELECT idUsuario, nome, senha, tipo_usuario FROM Usuario WHERE email = ?";

@@ -1,7 +1,5 @@
 
-  <!-- HERO SECTION -->
   <style>
-    /* Footer link colors */
     footer a {
       color: #ffffffff !important;
       opacity: 1 !important;
@@ -28,7 +26,6 @@
       cursor: pointer;
     }
 
-    /* WhatsApp floating button styling */
     button.Btn {
       position: fixed;
       right: 20px;
@@ -38,7 +35,7 @@
       padding: 0;
       border: none;
       border-radius: 50% !important;
-      background: #25D366; /* WhatsApp green */
+      background: #25D366;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -67,7 +64,6 @@
       display: block;
     }
 
-    /* Optional background span (if used for effects) */
     button.Btn .BG {
       position: absolute;
       inset: 0;
@@ -108,7 +104,7 @@
     </div>
   </section>
 
-  <!-- FOOTER MODERNO TECH -->
+  <!-- FOOTER -->
   <footer style="background: linear-gradient(135deg,#3b82f6,#1e40af); color:white; padding:60px 0;">
     <div class="container">
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;">
@@ -154,17 +150,16 @@
     <span class="BG"></span>
   </button>
 
-  <!-- Scripts: carregar Bootstrap JS uma vez -->
+  <!-- Scripts: carregar Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     (function () {
-      // Inicializa apenas se estivermos na página de doações (modal existe)
+   
       if (!document.getElementById('cardModal')) return;
 
       document.addEventListener('click', function (e) {
         var card = e.target.closest('.card');
         if (!card) return;
-        // Ignorar cliques nos botões internos do card
         if (e.target.closest('.card__button')) return;
 
         var title = card.querySelector('.card__title')?.textContent?.trim() || '';

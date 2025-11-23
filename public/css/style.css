@@ -79,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #25d366; /* cor do WhatsApp */
+  background-color: #25d366;
   border-radius: 40%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
@@ -106,7 +106,6 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.35);
 }
 
-/* From Uiverse.io by mooosakhan */
 .card {
   width: fit-content;
   height: fit-content;
@@ -120,7 +119,6 @@
   flex-direction: row;
 }
 
-/* for all social containers*/
 .socialContainer {
   width: 52px;
   height: 52px;
@@ -132,6 +130,7 @@
   overflow: hidden;
   transition-duration: 0.3s;
 }
+
 /* instagram*/
 .containerOne:hover {
   background-color: #d62976;
@@ -170,7 +169,6 @@
   animation: slide-in-top 0.3s both;
 }
 
-/* Exception: allow white button with black text in navbar (restore original login button appearance) */
 nav.navbar a.btn.bg-white.text-black,
 nav.navbar a.btn.text-black.bg-white,
 nav.navbar .btn.bg-white.text-black {

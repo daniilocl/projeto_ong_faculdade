@@ -16,9 +16,6 @@
 
 
     <main class="container mt-4 **d-flex flex-wrap justify-content-center**">
-        <!-- Conteúdo da página -->
-
-        <!-- cards -->
 
         <!-- cards 01 -->
         <div class="card">
@@ -95,7 +92,7 @@
             </div>
         </div>
 
-                <!-- cards 04 -->
+        <!-- cards 04 -->
         <div class="card">
             <div class="card__shine"></div>
             <div class="card__glow"></div>

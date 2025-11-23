@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../utils/session_helper.php';
 require_once __DIR__ . '/../utils/notification_helper.php';
-// Inicia sessão de forma segura antes de qualquer saída
 secure_session_start();
 ?>
 
@@ -56,7 +55,7 @@ secure_session_start();
   </div>
 </nav>
 
-<!-- SweetAlert2 + logout confirmation -->
+<!-- SweetAlert2 + confirmação de logout  -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
   function confirmarLogout(formId) {
@@ -78,6 +77,5 @@ secure_session_start();
   }
 </script>
 <?php
-// Exibe notificações em toda a aplicação quando definidas
 exibirNotificationSessao();
 ?>

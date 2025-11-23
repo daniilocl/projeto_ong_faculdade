@@ -4,13 +4,11 @@ require_once __DIR__ . '/../models/Usuario.php';
 
 session_start();
 
-// Verifica login
 if (!isset($_SESSION['user_id'])) {
     header("Location: /Maos_Que_Ajudam/src/views/login/login.php");
     exit;
 }
 
-// Verifica permissão
 if ($_SESSION['user_tipo'] !== 'admin') {
     header("Location: /Maos_Que_Ajudam/index.php");
     exit;
@@ -36,7 +34,6 @@ if (isset($_GET['busca']) && $_GET['busca'] !== '') {
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./public/css/style.css">
     <style>
-        /* Estilos simples para o admin (mantidos para o layout) */
         body {
             background-color: #f8f9fa;
         }
@@ -58,7 +55,6 @@ if (isset($_GET['busca']) && $_GET['busca'] !== '') {
             background-color: #495057;
         }
 
-        /* Destaque para a Tabela */
         .table-responsive {
             max-height: 70vh;
             overflow-y: auto;

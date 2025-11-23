@@ -1,11 +1,10 @@
 <?php
-// src/controllers/logout.php
+
 require_once __DIR__ . '/../utils/session_helper.php';
 secure_session_start();
 
 require_once __DIR__ . '/../utils/notification_helper.php';
 
-// Exigir POST com token CSRF válido para efetuar logout
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     setNotification('erro', 'Logout bloqueado', 'Logout só pode ser feito via formulário.');
     header('Location: /Maos_Que_Ajudam/index.php');
@@ -23,7 +22,6 @@ if (!validate_csrf_token($token)) {
 $_SESSION = array();
 
 // Se for preciso destruir o cookie de sessão também, o faz.
-// Nota: Isso apagará o cookie de sessão e não apenas os dados da sessão!
 if (ini_get("session.use_cookies")) {
     $params = session_get_cookie_params();
     setcookie(session_name(), '', time() - 42000,
@@ -32,11 +30,10 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Finalmente, destrói a sessão
+// Destrói toda a sessão
 session_destroy();
 
 // Redireciona o usuário para a página de login
-// Confirme a BASE_URL se necessário, mas geralmente um caminho relativo/absoluto funciona
 $BASE_URL = "/Maos_Que_Ajudam/src";
 header("Location: {$BASE_URL}/views/login/login.php");
 exit;
