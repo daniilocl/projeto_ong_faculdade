@@ -1,11 +1,6 @@
 <?php
-// src/views/voluntario/cadastro_voluntario.php
-
-// ATENÇÃO: Inclua o Controller NO TOPO para processar a lógica
-// Mude o 'action' do formulário para este controller, não para o Model!
 require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
 
-// O controller define $erro, $nome, $email, $cpf
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +14,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
   <link href="/Maos_Que_Ajudam/public/css/style.css" rel="stylesheet">
   <title>Cadastro de Voluntário</title>
   <style>
-    /* Estilos CSS do seu código */
     .form-cadastro {
       max-width: 450px;
       padding: 30px;
@@ -42,8 +36,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
 
 <body>
 
-  <?php // include __DIR__ . '/../db/connection.php'; // Removido, pois já está no controller 
-  ?>
   <?php include __DIR__ . '/../components/header.php'; ?>
 
 
@@ -51,7 +43,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
     <section class="container">
       <div class="row justify-content-center">
         <div class="d-flex justify-content-center">
-          <!-- ACTION APONTA PARA O CONTROLLER -->
           <form action="" method="post" class="bg-white form-cadastro">
 
             <div class="d-flex align-items-center mb-4 border-bottom pb-3">
@@ -60,7 +51,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
               <h2 class="h4 mb-0 text-primary">Cadastro de Voluntários</h2>
             </div>
 
-            <!-- Mensagem de ERRO -->
             <?php if (!empty($erro)): ?>
               <div class="alert alert-danger" role="alert">
                 <?= htmlspecialchars($erro) ?>
@@ -69,7 +59,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
 
             <div class="mb-3">
               <label for="nome" class="form-label">Nome Completo</label>
-              <!-- Adiciona o value para manter o dado preenchido em caso de erro -->
               <input type="text" class="form-control" name="nome" id="nome" placeholder="Seu nome completo" required
                 value="<?= htmlspecialchars($nome) ?>">
             </div>
@@ -86,7 +75,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
                 required value="<?= htmlspecialchars($cpf) ?>">
             </div>
 
-            <!-- NOVOS CAMPOS DE SENHA -->
             <div class="mb-3">
               <label for="senha" class="form-label">Senha</label>
               <input type="password" class="form-control" name="senha" id="senha" required>
@@ -134,18 +122,17 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
     </div>
   </section>
 
-  <!-- FOOTER MODERNO TECH -->
   <footer style="background: linear-gradient(135deg,#3b82f6,#1e40af); color:white; padding:60px 0;">
     <div class="container">
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:30px;">
-        <!-- Sobre -->
+        
         <div>
           <h5 style="font-weight:700; margin-bottom:20px;"> Mãos que Ajudam 👐</h5>
           <p style="opacity:0.85;">Somos uma ONG comprometida em promover
           <p>solidariedade e impactar vidas positivamente.</p>
           Cada gesto faz diferença.</p>
         </div>
-        <!-- Contato -->
+        
         <div>
           <h6 style="font-weight:600; margin-bottom:15px;">Contato</h6>
           <p style="opacity:0.85;">📍 São Paulo, SP – Brasil</p>
@@ -168,7 +155,7 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
     </div>
   </footer>
 
-  <!-- Botão WhatsApp Fixo -->
+  
   <button class="Btn" onclick="window.open('https://wa.me/5511999999999', '_blank')">
     <span class="svgContainer">
       <svg viewBox="0 0 16 16" height="2.5em" class="svgIcon" fill="white">
@@ -180,7 +167,6 @@ require_once __DIR__ . '/../controllers/cadastro_voluntario.php';
     <span class="BG"></span>
   </button>
 
-  <!-- Scripts: carregar Bootstrap JS uma vez -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

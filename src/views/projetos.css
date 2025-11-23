@@ -1,17 +1,15 @@
-/* Modern Projeto styles - Cores Aprimoradas */
 :root{
-    --bg: #f7f9fc; /* Fundo mais claro */
+    --bg: #f7f9fc;
     --card: #ffffff;
-    --text-primary: #1e293b; /* Texto principal mais escuro */
-    --text-muted: #64748b; /* Texto secundário mais suave */
+    --text-primary: #1e293b;
+    --text-muted: #64748b;
     --accent: #5c5ff6;
     --accent-dark: #4f53da;
     --accent-2: #7c3aed;
-    --shadow: 0 10px 25px rgba(16, 24, 40, 0.08); /* Sombra mais sutil */
+    --shadow: 0 10px 25px rgba(16, 24, 40, 0.08);
     --shadow-hover: 0 18px 40px rgba(16, 24, 40, 0.12);
 }
 
-/* --- Estilos Gerais --- */
 body {
     font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
     margin: 0;
@@ -27,24 +25,22 @@ body {
     padding: 32px 0;
 }
 
-/* Hero Section */
 .projetos-hero {
-    /* Novo background: sutil e com gradiente diagonal */
     background: linear-gradient(135deg, rgba(92, 95, 246, 0.08), rgba(124, 58, 237, 0.06), var(--card));
     border-radius: 12px;
-    padding: 50px 20px; /* Mais padding para destaque */
+    padding: 50px 20px;
     margin-bottom: 30px;
     box-shadow: var(--shadow);
     text-align: center;
 }
 .projetos-hero h1 { 
     margin:0 0 10px 0; 
-    font-size: 2.5rem; /* Maior destaque */
+    font-size: 2.5rem;
     font-weight: 700; 
     color: var(--text-primary); 
 }
 .projetos-hero p { 
-    margin:0 auto 24px auto; /* Centralizado com margem */
+    margin:0 auto 24px auto;
     color: var(--text-muted); 
     font-size: 1.15rem; 
     max-width: 600px;
@@ -53,7 +49,6 @@ body {
     padding: 12px 24px; 
     border-radius: 10px; 
     font-weight: 600; 
-    /* Estilo do botão principal */
     background-color: var(--accent);
     border-color: var(--accent);
     transition: background-color 0.2s, transform 0.2s;
@@ -68,17 +63,16 @@ body {
 .btn-ghost:hover { background-color: rgba(92, 95, 246, 0.08); color: var(--accent-dark); }
 
 
-/* --- Filtros (Botões de Categoria) --- */
 .filtro-acoes {
     margin-bottom: 30px;
     padding: 16px;
-    background: var(--card); /* Fundo branco simples */
+    background: var(--card);
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(16, 24, 40, 0.06); /* Sombra mais leve */
+    box-shadow: 0 4px 15px rgba(16, 24, 40, 0.06);
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    border: 1px solid #e2e8f0; /* Borda sutil */
+    border: 1px solid #e2e8f0;
 }
 
 .filtro-acoes p { 
@@ -95,9 +89,9 @@ body {
 }
 
 .btn-filtro {
-    background: #f1f5f9; /* Fundo cinza claro */
+    background: #f1f5f9;
     color: var(--text-muted);
-    border: 1px solid #cbd5e1; /* Borda mais definida */
+    border: 1px solid #cbd5e1;
     padding: 8px 14px;
     border-radius: 999px;
     cursor: pointer;
@@ -122,19 +116,18 @@ body {
     transform: translateY(-2px);
 }
 
-/* --- Novo estilo: Cards de Projeto --- */
 .projetos-grid { margin-top: 10px; }
-/* Grid em telas menores (colunas) */
+
 .projetos-grid .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Maior espaçamento */
+    gap: 30px;
 }
 .project-card {
     background: var(--card);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(16, 24, 40, 0.05); /* Sombra muito sutil */
+    box-shadow: 0 4px 15px rgba(16, 24, 40, 0.05);
     border: 1px solid #f0f4f8;
     display: flex;
     flex-direction: column;
@@ -144,14 +137,14 @@ body {
 .project-card:hover { 
     transform: translateY(-4px); 
     box-shadow: var(--shadow-hover); 
-    border-color: rgba(92, 95, 246, 0.2); /* Borda destaca no hover */
+    border-color: rgba(92, 95, 246, 0.2);
 }
 
-/* Área da mídia (Imagem) */
+
 .project-media { position: relative; flex: 0 0 auto; }
 .project-media img { 
     width: 100%; 
-    height: 180px; /* Imagens um pouco maiores */
+    height: 180px; 
     object-fit: cover; 
     display: block; 
     border-radius: 12px 12px 0 0; 
@@ -159,7 +152,7 @@ body {
 }
 .project-card:hover .project-media img { transform: scale(1.03); }
 
-/* Corpo do Card */
+
 .project-body { 
     padding: 18px; 
     display: flex; 
@@ -175,7 +168,7 @@ body {
 }
 .project-area { 
     margin:0; 
-    color: var(--accent); /* Cor da área em destaque */
+    color: var(--accent);
     font-weight: 600; 
     font-size: 0.85rem; 
     display: inline-flex; 
@@ -190,7 +183,6 @@ body {
     flex: 1; 
 }
 
-/* Meta e Ações */
 .project-meta { 
     display: flex; 
     align-items: center; 
@@ -228,18 +220,15 @@ body {
     background-color: var(--accent-dark);
 }
 
-/* Cores dos Status (Mantive as cores originais) */
 .status-urgente { color:#b91c1c; background-color:#fee2e2; }
 .status-aberto { color:#065f46; background-color:#dcfce7; }
 .status-concluido { color:#374151; background-color:#eef2ff; }
 
-/* Responsive tweaks */
 @media (max-width: 900px) {
     .projetos-hero h1 { font-size: 2rem; }
     .projetos-hero p { font-size: 1rem; }
 }
 
-/* Tablet: 2 colunas */
 @media (max-width: 768px) {
     .projetos-grid .grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -248,7 +237,6 @@ body {
     .filtro-acoes p { margin: 0 0 10px 0; width: 100%; }
 }
 
-/* Mobile: layout em linha e alinhamento */
 @media (max-width: 600px) {
     .projetos-hero { padding: 30px 15px; }
     .projetos-hero h1 { font-size: 1.7rem; }

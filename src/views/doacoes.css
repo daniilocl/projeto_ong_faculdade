@@ -1,16 +1,9 @@
-/* From Uiverse.io by SachinKumar666 */
-/* Adicione este bloco ao seu CSS */
 .container.mt-4 {
     display: flex;
     flex-wrap: wrap;
-    /* Para quebrar a linha em telas menores */
     justify-content: center;
-    /* Opcional: Para centralizar os cards */
     gap: 50px;
-    /* Adiciona um espaço entre os cards, separando-os */
 }
-
-/* Nota: Se o seletor acima não funcionar devido à especificidade, use o ID ou uma classe mais específica para o <main> */
 
 .card {
     --card-bg: #ffffff;
@@ -161,7 +154,6 @@
     transform: scale(0.9);
 }
 
-/* Hover Effects */
 .card:hover {
     transform: translateY(-10px);
     box-shadow:
@@ -214,12 +206,10 @@
     animation: pulse 1.5s infinite;
 }
 
-/* Active State */
 .card:active {
     transform: translateY(-5px) scale(0.98);
 }
 
-/* Animations */
 @keyframes shine {
     0% {
         background-position: -100% 0;
@@ -244,7 +234,6 @@
     }
 }
 
-/* Estilos adicionais para o modal de detalhes do card */
 #cardModal .modal-content {
     border-radius: 14px;
     overflow: hidden;
@@ -282,7 +271,6 @@
     display: block;
 }
 
-/* Layout vertical do modal: imagem em cima, depois descrição e preço */
 .card-modal-vertical {
     display: flex;
     flex-direction: column;
@@ -334,7 +322,6 @@
     to   { transform: translateY(0) scale(1); opacity: 1; }
 }
 
-/* Responsivo: modal mais compacto em telas pequenas */
 @media (max-width: 576px) {
     #cardModal .modal-dialog { max-width: 92%; margin: 1.75rem auto; }
     #cardModalImage { max-height: 220px; }

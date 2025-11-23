@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body>  
-     
-    <h1>ola</h1>
+<body>
      
     <?php include __DIR__ . '/../components/header.php'; ?>
 
@@ -129,12 +127,10 @@
     <?php include __DIR__ . '/../components/footer.php'; ?>
 
     <script>
-        // Seu script de filtro original funciona perfeitamente, mantive
         document.querySelectorAll('.btn-filtro').forEach(button => {
             button.addEventListener('click', () => {
                 const categoria = button.getAttribute('data-categoria');
 
-                // Toggle active
                 document.querySelectorAll('.btn-filtro').forEach(btn => btn.classList.remove('active'));
                 button.classList.add('active');
 

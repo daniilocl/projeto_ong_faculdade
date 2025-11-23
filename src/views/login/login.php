@@ -15,7 +15,6 @@
   require_once __DIR__ . '/../../utils/session_helper.php';
   require_once __DIR__ . '/../../utils/notification_helper.php';
 
-  // Usa a função segura para iniciar sessão
   secure_session_start();
   exibirNotificationSessao();
 ?>
@@ -96,7 +95,6 @@
   </div>
   </div>
 
-  <!-- Layout Mobile -->
   <div class="mobile-layout">
     <div class="container">
       <form id="mobile-login">

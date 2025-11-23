@@ -22,7 +22,7 @@
 
       <!-- Slide 1 -->
       <div class="carousel-item active position-relative">
-        <div class="carousel-overlay"></div> <!-- overlay sobre toda a imagem -->
+        <div class="carousel-overlay"></div>
         <img src="public/imagens/logo/camisa.azul.png" class="d-block w-100" alt="Imagem 1">
         <div class="carousel-caption d-flex flex-column justify-content-center align-items-center">
           <a href="/Maos_Que_Ajudam/index.php" class="text-white text-decoration-none">
