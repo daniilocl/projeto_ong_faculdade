@@ -39,7 +39,7 @@ class Usuario
             error_log("Erro ao executar cadastro: " . $e->getMessage());
             $result = false;
         }
-        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Restaura padrão
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         if ($result) {
             $new_id = mysqli_insert_id($this->conn);
