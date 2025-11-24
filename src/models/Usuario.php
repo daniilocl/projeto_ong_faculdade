@@ -71,14 +71,23 @@ class Usuario
 
         mysqli_stmt_bind_param($stmt, "sssss", $nome, $cpf, $email, $senha_hash, $tipo_voluntario);
 
-        $result = mysqli_stmt_execute($stmt);
+        // Desabilita exceptions temporariamente para capturar erro de duplicidade
+        $old_report = mysqli_report(MYSQLI_REPORT_OFF);
+        $result = false;
+        try {
+            $result = mysqli_stmt_execute($stmt);
+        } catch (mysqli_sql_exception $e) {
+            // Trata erro de duplicidade ou outros
+            error_log("Erro ao executar cadastro de voluntário: " . $e->getMessage());
+            $result = false;
+        }
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
         if ($result) {
             $new_id = mysqli_insert_id($this->conn);
             mysqli_stmt_close($stmt);
             return $new_id;
         } else {
-            error_log("Erro ao executar cadastro de voluntário: " . mysqli_stmt_error($stmt));
             mysqli_stmt_close($stmt);
             return false;
         }
