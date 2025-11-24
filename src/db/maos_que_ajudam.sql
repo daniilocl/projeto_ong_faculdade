@@ -4,7 +4,7 @@ use maosqueajudam;
 
 create table Usuario (
     idUsuario int primary key auto_increment,
-    nome varchar(50) not null unique,
+    nome varchar(50) not null,
     cpf bigint not null unique,
     email varchar(100) not null unique,
     senha varchar(100) not null,

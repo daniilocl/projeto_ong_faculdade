@@ -32,16 +32,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $erro = "O CPF deve conter exatamente 11 números.";
     } elseif ($senha !== $confirma_senha) {
         $erro = "As senhas não conferem.";
-    } else {
+    }
 
+    if (!empty($erro)) {
+        setNotification('erro', 'Erro no Cadastro', $erro);
+    } else {
         if ($usuarioModel->cadastrarVoluntario($nome, $cpf, $email, $senha)) {
             $_SESSION['cadastro_sucesso'] = "Cadastro de voluntário realizado! Faça login.";
             setNotification('sucesso', 'Cadastro Realizado!', 'Você foi cadastrado com sucesso! Faça login para continuar.');
             header("Location: {$BASE_URL}/views/login/login.php"); 
             exit;
         } else {
-            $erro = "Erro ao cadastrar. O e-mail ou CPF já podem estar em uso, ou ocorreu um erro no servidor.";
-            setNotification('erro', 'Erro no Cadastro', $erro); 
+            $erro = "O e-mail ou CPF já estão cadastrados.";
+            setNotification('erro', 'Erro no Cadastro', $erro);
         }
     }
 }

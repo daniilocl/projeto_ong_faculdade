@@ -1,3 +1,25 @@
+.form-cadastro {
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-cadastro .btn {
+  margin-bottom: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  position: relative;
+  z-index: 1;
+}
+
+.form-cadastro .alert {
+  margin-bottom: 1rem;
+}
+
 .navbar {
   background: #2298c7;
   background: linear-gradient(
